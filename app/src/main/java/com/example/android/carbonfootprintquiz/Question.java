@@ -37,7 +37,7 @@ public class Question extends AppCompatActivity {
 
         // display the "Question x:" text
         TextView qNo = (TextView) findViewById(R.id.textview_questionnumber);
-        qNo.setText("Question " + String.valueOf(intQuestionNumber) + ":");
+        qNo.setText(getString(R.string.question) + " " + String.valueOf(intQuestionNumber) + ":");
 
         // get the question string array from strings.xml
         Resources questionsRes = getResources();
@@ -72,7 +72,7 @@ public class Question extends AppCompatActivity {
         // displaying the possible answers
         RadioButton rOpts;
         for(j=0; j <= numberOfOptions-1; j++)   {
-            // create a new radiobutton
+            // create a new radiobutton, with the answer as the text
             rOpts = new RadioButton(this);
             rOpts.setText(options[o+j]);
             rOpts.setTag(String.valueOf(j+1));
