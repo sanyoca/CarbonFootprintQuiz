@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static android.R.attr.left;
-import static android.R.attr.right;
-
 public class Evaluate extends AppCompatActivity {
     int intCorrect, intGivenAnswers[];
     String stringName, goodAnswer, badAnswer;
