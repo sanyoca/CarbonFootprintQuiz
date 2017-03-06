@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Carbon Footprint measuring</string>
+    <string name="app_name">Earth Day Quiz</string>
     <string name="intro">How much do you know about global warming, greenhouse effect, ecological footprint? Complete this short quiz and you\'ll know the answers.</string>
     <string name="entername">Please, tell me your name:</string>
     <string name="forgotname">You forgot to tell me your name!</string>
