@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Carbon Footprint measuring</string>
+    <string name="intro">How much do you know about global warming, greenhouse effect, ecological footprint? Complete this short quiz and you\'ll know the answers.</string>
+    <string name="entername">Please, tell me your name:</string>
+    <string name="forgotname">You forgot to tell me your name!</string>
+    <string name="startbutton">Let\'s get started!</string>
+    <string name="forgotanswer">Please, select an answer!</string>
+    <string name="nextbutton">Next question</string>
+    <string name="congrats">Congratulations</string>
+    <string name="outof">Out of </string>
+    <string name="answered"> questions, you answered</string>
+    <string name="correctly">correctly!</string>
+
+    <string name="howmanyquestions">7</string>
+
+    <string-array name="questions">
+        <item name="q1">Which energy source emits the most CO2?</item>
+        <item name="q2">Which statement is TRUE?</item>
+        <item name="q3">If there were no greenhouse effect, how would the average temperature change?</item>
+        <item name="q4">From the gases, listed below, which contributes the most to the NATURAL greenhouse effect?</item>
+        <item name="q5">Which statement is FALSE?</item>
+        <item name="q6">The ecological footprint is the biologically productive area needed to provide for everything people use. An average american citizen\'s ecological footprint is 9.7 acres, an english citizen\'s 5.6 acres. How much an indian\'s ecological footprint?</item>
+        <item name="q7">An ecological deficit occurs when the Ecological footprint of a population exceeds the biocapacity of the area available to that population. China has a 260\u0025 deficit, USA has 120\u0025, UK has 280\u0025. How much is it for Japan? </item>
+    </string-array>
+
+    <string-array name="numberofanswers">
+        <item name="q1">4</item>
+        <item name="q2">4</item>
+        <item name="q3">3</item>
+        <item name="q4">3</item>
+        <item name="q5">4</item>
+        <item name="q6">4</item>
+        <item name="q7">4</item>
+    </string-array>
+
+    <string-array name="options">
+        <item name="q1o1">coal</item>
+        <item name="q1o2">oil</item>
+        <item name="q1o3">natural gas</item>
+        <item name="q1o4">wood</item>
+        <item name="q2o1">The greenhouse effect is the outcome of human activity, emitting greenhouse gases into the atmosphere</item>
+        <item name="q2o2">The greenhouse effect was important in the formation of life on Earth</item>
+        <item name="q2o3">The greenhouse effect is only the outcome of natural processes</item>
+        <item name="q2o4">The same amount of CO2 has a greater impact on the greenhouse effect than the same amount of methane</item>
+        <item name="q3o1">It would be 30 Celsius (86 F) colder</item>
+        <item name="q3o2">It would be 20 Celsius (68 F) warmer</item>
+        <item name="q3o3">It would be the same, like now</item>
+        <item name="q4o1">Steam (H2O)</item>
+        <item name="q4o2">Methane (CH4)</item>
+        <item name="q4o3">Carbon dioxide (CO2)</item>
+        <item name="q5o1">Ozone is harmful for health</item>
+        <item name="q5o2">Ozone layer is important to filter UV rays from sunshine</item>
+        <item name="q5o3">Ozone as one of the most important greenhouse gas, greatly adds to the global climate change</item>
+        <item name="q5o4">The ozone molecule is build up from oxygen atoms</item>
+        <item name="q6o1">3 acres</item>
+        <item name="q6o2">1.8 acres</item>
+        <item name="q6o3">1 acre</item>
+        <item name="q6o4">0.5 acre</item>
+        <item name="q7o1">400%</item>
+        <item name="q7o2">500%</item>
+        <item name="q7o3">700%</item>
+        <item name="q7o4">600%</item>
+    </string-array>
+
+    <string-array name="correctanswers">
+        <item name="q1">1</item>
+        <item name="q2">2</item>
+        <item name="q3">1</item>
+        <item name="q4">1</item>
+        <item name="q5">3</item>
+        <item name="q6">4</item>
+        <item name="q7">4</item>
+    </string-array>
+</resources>
+

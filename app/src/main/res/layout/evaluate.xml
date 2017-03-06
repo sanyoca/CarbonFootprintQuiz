@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/evaluate_congrats"
+        android:id="@+id/congrats"
+        android:text="@string/congrats" />
+
+    <TextView
+        style="@style/evaluate_name"
+        android:id="@+id/name_textview" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/evaluate"
+        android:id="@+id/outof" />
+
+    <TextView
+        style="@style/evaluate_correct_answers"
+        android:id="@+id/correct" />
+
+    <TextView
+        style="@style/evaluate"
+        android:text="@string/correctly"
+        android:id="@+id/correctly" />
+
+</LinearLayout>

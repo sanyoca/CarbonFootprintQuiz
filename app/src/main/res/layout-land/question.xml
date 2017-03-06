@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenfeet"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <LinearLayout
+        style="@style/land_main">
+
+        <TextView
+            android:id="@+id/textview_questionnumber"
+            style="@style/questiontextnumber" />
+
+        <TextView
+            android:id="@+id/textview_question"
+            style="@style/questiontext" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/land_opts">
+
+        <RadioGroup
+            android:id="@+id/radiogroup_answers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></RadioGroup>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/button_next"
+            style="@style/nextbutton"
+            android:text="@string/nextbutton" />
+
+    </LinearLayout>
+</LinearLayout>
