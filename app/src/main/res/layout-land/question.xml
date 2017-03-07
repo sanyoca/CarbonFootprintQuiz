@@ -29,6 +29,7 @@
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/button_next"
+            android:tag="100"
             style="@style/nextbutton"
             android:text="@string/nextbutton" />
 

@@ -11,14 +11,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Question extends AppCompatActivity {
-    int intQuestionNumber, numberOfOptions, intCorrectAnswer, intCorrect, intAnswer = 0, intHowManyQuestions;
-    int[] intGivenAnswers;
-    String stringName;
+public class Question extends AppCompatActivity implements View.OnClickListener {
+    private int intQuestionNumber, intCorrectAnswer, intCorrect, intAnswer = 0, intHowManyQuestions;
+    private int[] intGivenAnswers;
+    private String stringName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        int i, j, o;
+        int i, j, o, numberOfOptions;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question);
@@ -76,23 +76,24 @@ public class Question extends AppCompatActivity {
             rOpts = new RadioButton(this);
             rOpts.setText(options[o+j]);
             rOpts.setTag(String.valueOf(j+1));
-            // if clicked on a radiobutton, the answer is set to the proper number
-            rOpts.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    intAnswer = Integer.valueOf(v.getTag().toString());
-                }
-            });
+            // setup the clicklistener for the radiobutton
+            rOpts.setOnClickListener(this);
             // add the radiobutton to the radiogroup
             rGroup.addView(rOpts);
         }
 
         // setup the next question button listener
         Button nextQuestionButton = (Button) findViewById(R.id.button_next);
-        nextQuestionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(intAnswer > 0) {
+        nextQuestionButton.setOnClickListener(this);
+    }
+
+    public void onClick(View v) {
+
+        int intWhichButton = Integer.valueOf(v.getTag().toString());
+        switch (intWhichButton) {
+            case 100: {
+                // this is for the next question button
+                if (intAnswer > 0) {
                     // store the given answer for the question
                     intGivenAnswers[intQuestionNumber] = intAnswer;
                     // increase the number of question by 1
@@ -113,7 +114,7 @@ public class Question extends AppCompatActivity {
                         // else go on with the questions
                     } else {
                         Intent questionsIntent = new Intent(Question.this, Question.class);
-                        // and pass them to the intent
+                        // and pass the datas to the intent
                         questionsIntent.putExtra("questionNumber", intQuestionNumber);
                         questionsIntent.putExtra("correctAnswers", intCorrect);
                         questionsIntent.putExtra("userAnswers", intGivenAnswers);
@@ -121,10 +122,15 @@ public class Question extends AppCompatActivity {
                         // start the intent - itself again
                         startActivity(questionsIntent);
                     }
-                }   else    {
+                } else {
+                    // if the user didn't select an answer, display a warning toast
                     Toast.makeText(Question.this, getString(R.string.forgotanswer), Toast.LENGTH_SHORT).show();
                 }
+                break;
             }
-        });
+            default: {
+                intAnswer = intWhichButton;
+            }
+        }
     }
 }

@@ -92,13 +92,13 @@
 
 
     <style name="evaluate_name" parent="evaluate">
-        <item name="android:textSize">35sp</item>
+        <item name="android:textSize">@dimen/evaluate_name</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginBottom">@dimen/large_margin</item>
     </style>
 
     <style name="evaluate_correct_answers" parent="evaluate">
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">@dimen/evaluate_correct_answers</item>
         <item name="android:textStyle">bold</item>
     </style>
 

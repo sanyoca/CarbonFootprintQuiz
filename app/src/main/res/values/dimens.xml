@@ -2,7 +2,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
     <dimen name="minor_margin">5dp</dimen>
     <dimen name="major_margin">10dp</dimen>
     <dimen name="large_margin">20dp</dimen>
+    <dimen name="evaluate_name">35sp</dimen>
+    <dimen name="evaluate_correct_answers">25sp</dimen>
 </resources>
