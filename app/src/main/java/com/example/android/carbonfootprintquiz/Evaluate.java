@@ -97,17 +97,17 @@ public class Evaluate extends AppCompatActivity {
                 // yes, it does. display it with "style"
                 answerEvaluation = new TextView(this);
                 answerEvaluation.setText(getString(R.string.wascorrect) + ": " + goodAnswer + ".");
-                answerEvaluation.setBackgroundColor(0xff00ff00);
+                answerEvaluation.setBackgroundColor(0xff4beb60); // originally 0xff00ff00 - "angry green"
                 listOfAnswers.addView(answerEvaluation);
             }   else    {
                 // nope, but style is still needed
                 answerEvaluation = new TextView(this);
                 answerEvaluation.setText(getString(R.string.wasincorrect) + ": " + badAnswer + ".");
-                answerEvaluation.setBackgroundColor(0xffff0000);
+                answerEvaluation.setBackgroundColor(0xfff2a0a0); // originally 0xffff0000 - "agressive red"
                 answerEvaluation.setTextColor(0xffffffff);
                 correction = new TextView(this);
                 correction.setText(getString(R.string.thecorrectis) + ": " + goodAnswer + ".");
-                correction.setBackgroundColor(0xff00ff00);
+                correction.setBackgroundColor(0xff4beb60); // originally 0xff00ff00 - "angry green"
                 lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(0, 10, 0, 0);
                 correction.setLayoutParams(lp);
