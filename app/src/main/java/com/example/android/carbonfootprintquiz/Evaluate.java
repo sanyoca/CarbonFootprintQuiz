@@ -61,23 +61,41 @@ public class Evaluate extends AppCompatActivity {
         // get the correct answers for each questions from strings.xml
         Resources correctRes = getResources();
         String[] correctAnswers = correctRes.getStringArray(R.array.correctanswers);
-
+        LinearLayout lLO;
         int i, j, o;
+        String questionNo;
         for(i=0; i<intHowManyQuestions; i++)   {
-            // display the question number
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            // set the view that will contain the question, the answer and the evaluation of it (bad/good), let's call it holderview
+            lLO = new LinearLayout(this);
+            lLO.setBackgroundResource(R.drawable.rounded_corners);
+            lLO.setOrientation(LinearLayout.VERTICAL);
+            lLO.setLayoutParams(lp);
+            lLO.setElevation(8.0f);
+            lLO.setPadding(20, 20, 20, 20);
+
+            // Question X
             questionNoToDisplay = new TextView(this);
-            questionNoToDisplay.setText(getString(R.string.question) + " " + String.valueOf(i+1));
+            questionNo = String.valueOf(i+1);
+            questionNoToDisplay.setText(getString(R.string.question) + " " + questionNo);
             questionNoToDisplay.setGravity(Gravity.CENTER_HORIZONTAL);
+            lp.setMargins(0, 20, 0, 20);
+            questionNoToDisplay.setLayoutParams(lp);
             questionNoToDisplay.setTypeface(null, Typeface.BOLD);
             questionNoToDisplay.setTextColor(0xff000000);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 20, 0, 0);
-            questionNoToDisplay.setLayoutParams(lp);
-            listOfAnswers.addView(questionNoToDisplay);
-            //display the question
+
+            // add 'Question X' to the view
+            lLO.addView(questionNoToDisplay);
+
+            // The question
             questionToDisplay = new TextView(this);
             questionToDisplay.setText(questions[i]);
-            listOfAnswers.addView(questionToDisplay);
+            questionToDisplay.setTextColor(0xff000000);
+            questionToDisplay.setLayoutParams(lp);
+
+            // add question to the view
+            lLO.addView(questionToDisplay);
 
             // where the answers of the current question start?
             // o will contain the index for the "options" string-array, pointing to the first option of the current question
@@ -95,32 +113,32 @@ public class Evaluate extends AppCompatActivity {
             // the given answer equals to the correct answer?
             if(intGivenAnswers[i+1] == Integer.valueOf(correctAnswers[i]))  {
                 // yes, it does. display it with "style"
+                // the answer
                 answerEvaluation = new TextView(this);
                 answerEvaluation.setText(getString(R.string.wascorrect) + ": " + goodAnswer + ".");
                 answerEvaluation.setBackgroundColor(0xff4beb60); // originally 0xff00ff00 - "angry green"
-                listOfAnswers.addView(answerEvaluation);
+                // add it to the view
+                lLO.addView(answerEvaluation);
             }   else    {
                 // nope, but style is still needed
+                // the user's answer
                 answerEvaluation = new TextView(this);
                 answerEvaluation.setText(getString(R.string.wasincorrect) + ": " + badAnswer + ".");
                 answerEvaluation.setBackgroundColor(0xfff2a0a0); // originally 0xffff0000 - "agressive red"
                 answerEvaluation.setTextColor(0xffffffff);
+                // the correct answer
                 correction = new TextView(this);
                 correction.setText(getString(R.string.thecorrectis) + ": " + goodAnswer + ".");
                 correction.setBackgroundColor(0xff4beb60); // originally 0xff00ff00 - "angry green"
                 lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(0, 10, 0, 0);
                 correction.setLayoutParams(lp);
-                listOfAnswers.addView(answerEvaluation);
-                listOfAnswers.addView(correction);
+                // add both of them to the view
+                lLO.addView(answerEvaluation);
+                lLO.addView(correction);
             }
-
-            line = new View(this);
-            line.setBackgroundColor(0xff888888);
-            lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
-            lp.setMargins(0, 25, 0, 5);
-            line.setLayoutParams(lp);
-            listOfAnswers.addView(line);
+            // add the holderview to the big view in the layout
+            listOfAnswers.addView(lLO);
         }
     }
 }
