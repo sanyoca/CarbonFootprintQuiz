@@ -11,10 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Evaluate extends AppCompatActivity {
+    final int COLORBLACK = 0xff000000;
+    final int COLORWHITE = 0xffffffff;
+    final int GOODANSWERGREEN = 0xff4beb60;
+    final int BADANSWERRED = 0xfff2a0a0;
     int intCorrect, intGivenAnswers[];
     String stringName, goodAnswer, badAnswer;
     TextView questionNoToDisplay, questionToDisplay, answerEvaluation, correction;
-    View line;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +86,7 @@ public class Evaluate extends AppCompatActivity {
             lp.setMargins(0, 20, 0, 20);
             questionNoToDisplay.setLayoutParams(lp);
             questionNoToDisplay.setTypeface(null, Typeface.BOLD);
-            questionNoToDisplay.setTextColor(0xff000000);
+            questionNoToDisplay.setTextColor(COLORBLACK);
 
             // add 'Question X' to the view
             lLO.addView(questionNoToDisplay);
@@ -91,7 +94,7 @@ public class Evaluate extends AppCompatActivity {
             // The question
             questionToDisplay = new TextView(this);
             questionToDisplay.setText(questions[i]);
-            questionToDisplay.setTextColor(0xff000000);
+            questionToDisplay.setTextColor(COLORBLACK);
             questionToDisplay.setLayoutParams(lp);
 
             // add question to the view
@@ -116,7 +119,7 @@ public class Evaluate extends AppCompatActivity {
                 // the answer
                 answerEvaluation = new TextView(this);
                 answerEvaluation.setText(getString(R.string.wascorrect) + ": " + goodAnswer + ".");
-                answerEvaluation.setBackgroundColor(0xff4beb60); // originally 0xff00ff00 - "angry green"
+                answerEvaluation.setBackgroundColor(GOODANSWERGREEN); // originally 0xff00ff00 - "angry green"
                 // add it to the view
                 lLO.addView(answerEvaluation);
             } else {
@@ -124,12 +127,12 @@ public class Evaluate extends AppCompatActivity {
                 // the user's answer
                 answerEvaluation = new TextView(this);
                 answerEvaluation.setText(getString(R.string.wasincorrect) + ": " + badAnswer + ".");
-                answerEvaluation.setBackgroundColor(0xfff2a0a0); // originally 0xffff0000 - "agressive red"
-                answerEvaluation.setTextColor(0xffffffff);
+                answerEvaluation.setBackgroundColor(BADANSWERRED); // originally 0xffff0000 - "agressive red"
+                answerEvaluation.setTextColor(COLORWHITE);
                 // the correct answer
                 correction = new TextView(this);
                 correction.setText(getString(R.string.thecorrectis) + ": " + goodAnswer + ".");
-                correction.setBackgroundColor(0xff4beb60); // originally 0xff00ff00 - "angry green"
+                correction.setBackgroundColor(GOODANSWERGREEN); // originally 0xff00ff00 - "angry green"
                 lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(0, 10, 0, 0);
                 correction.setLayoutParams(lp);

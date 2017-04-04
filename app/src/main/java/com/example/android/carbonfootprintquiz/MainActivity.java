@@ -25,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
         webview.loadData(intro, "text/html", null);
 
         // setup the start quiz button listener
-        Button startQuiz = (Button) findViewById(R.id.button_start);
-
-        startQuiz.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // get the user's name
@@ -38,15 +36,15 @@ public class MainActivity extends AppCompatActivity {
                     Intent questionsIntent = new Intent(MainActivity.this, Question.class);
                     // pass the number of the actual question (1), the number of correct answers till now (0)
                     // and the answers given by the users array, then start the Question activity
-                    questionsIntent.putExtra("questionNumber", 1);
-                    questionsIntent.putExtra("correctAnswers", 0);
-
                     int intHowManyQuestions = Integer.valueOf(getString(R.string.howmanyquestions));
                     int[] ua;
                     ua = new int[intHowManyQuestions + 1];
 
+                    questionsIntent.putExtra("questionNumber", 1);
+                    questionsIntent.putExtra("correctAnswers", 0);
                     questionsIntent.putExtra("userAnswers", ua);
                     questionsIntent.putExtra("name", name);
+
                     startActivity(questionsIntent);
                 } else {
                     Toast.makeText(MainActivity.this, getString(R.string.forgotname), Toast.LENGTH_SHORT).show();
