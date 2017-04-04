@@ -53,29 +53,29 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
 
         // get the correct answers for each questions from strings.xml
         Resources correctRes = getResources();
-        String[] correct =correctRes.getStringArray(R.array.correctanswers);
-        intCorrectAnswer = Integer.valueOf(correct[intQuestionNumber-1]);
+        String[] correct = correctRes.getStringArray(R.array.correctanswers);
+        intCorrectAnswer = Integer.valueOf(correct[intQuestionNumber - 1]);
 
         // display the question
         TextView q = (TextView) findViewById(R.id.textview_question);
-        q.setText(questions[intQuestionNumber-1]);
+        q.setText(questions[intQuestionNumber - 1]);
 
         // get the radiogroup, so new radiobuttons can be inserted
         RadioGroup rGroup = (RadioGroup) findViewById(R.id.radiogroup_answers);
 
         // sorting out the number of answers and their place in the array
-        numberOfOptions = Integer.valueOf(numbers[intQuestionNumber-1]);
+        numberOfOptions = Integer.valueOf(numbers[intQuestionNumber - 1]);
         o = 0;
-        for(i=0; i < intQuestionNumber-1; i++)   {
+        for (i = 0; i < intQuestionNumber - 1; i++) {
             o = o + Integer.valueOf(numbers[i]);
         }
         // displaying the possible answers
         RadioButton rOpts;
-        for(j=0; j <= numberOfOptions-1; j++)   {
+        for (j = 0; j <= numberOfOptions - 1; j++) {
             // create a new radiobutton, with the answer as the text
             rOpts = new RadioButton(this);
-            rOpts.setText(options[o+j]);
-            rOpts.setTag(String.valueOf(j+1));
+            rOpts.setText(options[o + j]);
+            rOpts.setTag(String.valueOf(j + 1));
             // setup the clicklistener for the radiobutton
             rOpts.setOnClickListener(this);
             // add the radiobutton to the radiogroup

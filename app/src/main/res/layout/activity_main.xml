@@ -4,27 +4,27 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_margin"
     android:orientation="vertical"
+    android:padding="@dimen/activity_margin"
     tools:context="com.example.android.carbonfootprintquiz.MainActivity">
 
     <WebView
+        android:id="@+id/webview_intro"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/webview_intro" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        style="@style/nametext"
         android:id="@+id/textview_entername"
+        style="@style/nametext"
         android:text="@string/entername" />
 
     <EditText
-        style="@style/nameedit"
-        android:id="@+id/edittext_name" />
+        android:id="@+id/edittext_name"
+        style="@style/nameedit" />
 
     <android.support.v7.widget.AppCompatButton
-        style="@style/startbutton"
         android:id="@+id/button_start"
+        style="@style/startbutton"
         android:text="@string/startbutton" />
 
 </LinearLayout>

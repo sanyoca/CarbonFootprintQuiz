@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:padding="16dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,40 +11,40 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/evaluate_congrats"
             android:id="@+id/congrats"
+            style="@style/evaluate_congrats"
             android:text="@string/congrats" />
 
         <TextView
-            style="@style/evaluate_name"
-            android:id="@+id/name_textview" />
+            android:id="@+id/name_textview"
+            style="@style/evaluate_name" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            style="@style/evaluate"
-            android:id="@+id/outof" />
+            android:id="@+id/outof"
+            style="@style/evaluate" />
 
         <TextView
-            style="@style/evaluate_correct_answers"
-            android:id="@+id/correct" />
+            android:id="@+id/correct"
+            style="@style/evaluate_correct_answers" />
 
         <TextView
+            android:id="@+id/correctly"
             style="@style/evaluate"
-            android:text="@string/correctly"
-            android:id="@+id/correctly" />
+            android:text="@string/correctly" />
 
         <LinearLayout
+            android:id="@+id/listofanswers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/listofanswers">
+            android:orientation="vertical">
 
             <TextView
                 style="@style/evaluate_congrats"
-                android:text="@string/thesolution"/>
+                android:text="@string/thesolution" />
 
         </LinearLayout>
 

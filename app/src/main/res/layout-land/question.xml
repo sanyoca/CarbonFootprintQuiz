@@ -6,8 +6,7 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
-    <LinearLayout
-        style="@style/land_main">
+    <LinearLayout style="@style/land_main">
 
         <TextView
             android:id="@+id/textview_questionnumber"
@@ -19,8 +18,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/land_opts">
+    <LinearLayout style="@style/land_opts">
 
         <RadioGroup
             android:id="@+id/radiogroup_answers"
@@ -29,8 +27,8 @@
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/button_next"
-            android:tag="100"
             style="@style/nextbutton"
+            android:tag="100"
             android:text="@string/nextbutton" />
 
     </LinearLayout>

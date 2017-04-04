@@ -39,7 +39,7 @@ public class Evaluate extends AppCompatActivity {
 
         // display the evaluation texts
         TextView outOf = (TextView) findViewById(R.id.outof);
-        outOf.setText(getString(R.string.outof) + " " + String.valueOf(intHowManyQuestions) + " " +getString(R.string.answered));
+        outOf.setText(getString(R.string.outof) + " " + String.valueOf(intHowManyQuestions) + " " + getString(R.string.answered));
         TextView correct = (TextView) findViewById(R.id.correct);
         correct.setText(String.valueOf(intCorrect));
 
@@ -64,7 +64,7 @@ public class Evaluate extends AppCompatActivity {
         LinearLayout lLO;
         int i, j, o;
         String questionNo;
-        for(i=0; i<intHowManyQuestions; i++)   {
+        for (i = 0; i < intHowManyQuestions; i++) {
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
             // set the view that will contain the question, the answer and the evaluation of it (bad/good), let's call it holderview
@@ -77,7 +77,7 @@ public class Evaluate extends AppCompatActivity {
 
             // Question X
             questionNoToDisplay = new TextView(this);
-            questionNo = String.valueOf(i+1);
+            questionNo = String.valueOf(i + 1);
             questionNoToDisplay.setText(getString(R.string.question) + " " + questionNo);
             questionNoToDisplay.setGravity(Gravity.CENTER_HORIZONTAL);
             lp.setMargins(0, 20, 0, 20);
@@ -101,17 +101,17 @@ public class Evaluate extends AppCompatActivity {
             // o will contain the index for the "options" string-array, pointing to the first option of the current question
             o = 0;
             j = 0;
-            while(j<i)  {
+            while (j < i) {
                 o = o + Integer.valueOf(numbers[j]);
                 j++;
             }
 
             // get the good and bad answers
-            goodAnswer = options[o+Integer.valueOf(correctAnswers[i])-1];
-            badAnswer = options[o+intGivenAnswers[i+1]-1];
+            goodAnswer = options[o + Integer.valueOf(correctAnswers[i]) - 1];
+            badAnswer = options[o + intGivenAnswers[i + 1] - 1];
 
             // the given answer equals to the correct answer?
-            if(intGivenAnswers[i+1] == Integer.valueOf(correctAnswers[i]))  {
+            if (intGivenAnswers[i + 1] == Integer.valueOf(correctAnswers[i])) {
                 // yes, it does. display it with "style"
                 // the answer
                 answerEvaluation = new TextView(this);
@@ -119,7 +119,7 @@ public class Evaluate extends AppCompatActivity {
                 answerEvaluation.setBackgroundColor(0xff4beb60); // originally 0xff00ff00 - "angry green"
                 // add it to the view
                 lLO.addView(answerEvaluation);
-            }   else    {
+            } else {
                 // nope, but style is still needed
                 // the user's answer
                 answerEvaluation = new TextView(this);
