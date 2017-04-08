@@ -1,11 +1,10 @@
 package com.example.android.carbonfootprintquiz;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -43,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     questionsIntent.putExtra("questionNumber", 1);
                     questionsIntent.putExtra("correctAnswers", 0);
                     questionsIntent.putExtra("userAnswers", ua);
+                    questionsIntent.putExtra("shouldbecorrect", ua);
                     questionsIntent.putExtra("name", name);
 
                     startActivity(questionsIntent);

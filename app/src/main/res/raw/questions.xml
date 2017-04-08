@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questionlist>
+    <title type="text">Earth day quiz app questions</title>
+    <question>
+        <questionnumber>1</questionnumber>
+        <questiontext>Which energy source emits the most CO2?</questiontext>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>coal</answertext>
+            <answernumber>2</answernumber>
+            <answertext>oil</answertext>
+            <answernumber>3</answernumber>
+            <answertext>natural gas</answertext>
+            <answernumber>4</answernumber>
+            <answertext>wood</answertext>
+        </answers>
+        <correct>1</correct>
+    </question>
+    <question>
+        <questionnumber>2</questionnumber>
+        <questiontext>Which statement is TRUE?</questiontext>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>The greenhouse effect is the outcome of human activity, emitting greenhouse gases into the atmosphere</answertext>
+            <answernumber>2</answernumber>
+            <answertext>The greenhouse effect was important in the formation of life on Earth</answertext>
+            <answernumber>3</answernumber>
+            <answertext>The greenhouse effect is only the outcome of natural processes</answertext>
+            <answernumber>4</answernumber>
+            <answertext>The same amount of CO2 has a greater impact on the greenhouse effect than the same amount of methane</answertext>
+        </answers>
+        <correct>2</correct>
+    </question>
+    <question>
+        <questionnumber>3</questionnumber>
+        <questiontext>If there were no greenhouse effect, how would the average temperature change?</questiontext>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>It would be 30 Celsius (86 F) colder</answertext>
+            <answernumber>2</answernumber>
+            <answertext>It would be 20 Celsius (68 F) warmer</answertext>
+            <answernumber>3</answernumber>
+            <answertext>It would be the same, like now</answertext>
+        </answers>
+        <correct>1</correct>
+    </question>
+    <question>
+        <questionnumber>4</questionnumber>
+        <questiontext>From the gases, listed below, which contributes the most to the NATURAL greenhouse effect?</questiontext>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>Steam (H2O)</answertext>
+            <answernumber>2</answernumber>
+            <answertext>Methane (CH4)</answertext>
+            <answernumber>3</answernumber>
+            <answertext>Carbon dioxide (CO2)</answertext>
+        </answers>
+        <correct>1</correct>
+    </question>
+    <question>
+        <questionnumber>5</questionnumber>
+        <questiontext>Which statement is FALSE?</questiontext>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>Ozone is harmful for health</answertext>
+            <answernumber>2</answernumber>
+            <answertext>Ozone layer is important to filter UV rays from sunshine</answertext>
+            <answernumber>3</answernumber>
+            <answertext>Ozone as one of the most important greenhouse gas, greatly adds to the global climate change</answertext>
+            <answernumber>4</answernumber>
+            <answertext>The ozone molecule is build up from oxygen atoms</answertext>
+        </answers>
+        <correct>3</correct>
+    </question>
+    <question>
+        <questionnumber>6</questionnumber>
+        <questiontext>The ecological footprint is the biologically productive area needed to provide for everything people use. An average american citizens ecological footprint is 9.7 acres, an english citizens 5.6 acres. How much an indians ecological footprint?</questiontext>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>3 acres</answertext>
+            <answernumber>2</answernumber>
+            <answertext>1.8 acres</answertext>
+            <answernumber>3</answernumber>
+            <answertext>1 acre</answertext>
+            <answernumber>4</answernumber>
+            <answertext>0.5 acre</answertext>
+        </answers>
+        <correct>4</correct>
+    </question>
+    <question>
+        <questionnumber>7</questionnumber>
+        <questiontext>An ecological deficit occurs when the Ecological footprint of a population exceeds the biocapacity of the area available to that population. China has a 260% deficit, USA has 120%, UK has 280%. How much is it for Japan?</questiontext>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>400%</answertext>
+            <answernumber>2</answernumber>
+            <answertext>500%</answertext>
+            <answernumber>3</answernumber>
+            <answertext>700%</answertext>
+            <answernumber>4</answernumber>
+            <answertext>600%</answertext>
+        </answers>
+        <correct>4</correct>
+    </question>
+</questionlist>
+
+
