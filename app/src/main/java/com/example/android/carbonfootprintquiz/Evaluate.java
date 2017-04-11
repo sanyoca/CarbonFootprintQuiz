@@ -175,8 +175,8 @@ public class Evaluate extends AppCompatActivity {
         String toastMessage = getString(R.string.yourscoreis) + " " + String.valueOf(intCorrect) + " " + getString(R.string.outof2) + " " + String.valueOf(intHowManyQuestions);
         Toast.makeText(Evaluate.this, toastMessage, Toast.LENGTH_LONG).show();
     }
-    /*
-    parsing the xml, containing the question datas
+    /**
+     * parsing the xml, containing the question datas
      */
     public QuestionParser ParseThis(int intQuestionNumber) throws IOException, XmlPullParserException {
         QuestionParser returnStuff = new QuestionParser();
@@ -209,8 +209,8 @@ public class Evaluate extends AppCompatActivity {
         return returnStuff;
     }
 
-    /*
-    reads the actual question text from the XML
+    /**
+     * reads the actual question text from the XML
      */
     public String parseQuestion() throws IOException, XmlPullParserException {
         int intParserEvent;
@@ -228,8 +228,8 @@ public class Evaluate extends AppCompatActivity {
         return returnQuestion;
     }
 
-    /*
-    reads the question type
+    /**
+     * reads the question type
      */
     public String parseQuestionType() throws IOException, XmlPullParserException    {
         int intParserEvent;
@@ -245,8 +245,8 @@ public class Evaluate extends AppCompatActivity {
         return stringQuestionType;
     }
 
-    /*
-    reads the actual question's answers from the XML
+    /**
+     * reads the actual question's answers from the XML
      */
     public String[] parseAnswers() throws IOException, XmlPullParserException {
         String[] stringAnswers = {"*", "*", "*", "*", "*", "*"};
@@ -269,8 +269,8 @@ public class Evaluate extends AppCompatActivity {
         return stringAnswers;
     }
 
-    /*
-    get a little hint for the user
+    /**
+     * get a little hint for the user
     */
     public String parseHint() throws IOException, XmlPullParserException {
         int intParserEvent = parser.next(); // this will be <hint>
@@ -283,8 +283,8 @@ public class Evaluate extends AppCompatActivity {
     }
 
 
-    /*
-    reads the correct answer's number for the actual question
+    /**
+     * reads the correct answer's number for the actual question
      */
     public String parseCorrectAnswer() throws IOException, XmlPullParserException {
         String stringCorrectAnswer = "1";
@@ -304,8 +304,8 @@ public class Evaluate extends AppCompatActivity {
         return stringCorrectAnswer;
     }
 
-    /*
-    define a class for containing the datas of the question
+    /**
+     * define a class for containing the datas of the question
      */
     class QuestionParser {
         public String qpHint;
