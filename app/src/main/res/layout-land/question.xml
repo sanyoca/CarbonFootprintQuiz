@@ -25,11 +25,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></RadioGroup>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/button_next"
-            style="@style/nextbutton"
-            android:tag="100"
-            android:text="@string/nextbutton" />
+        <LinearLayout
+            android:id="@+id/checkbox_answers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"></LinearLayout>
+
+        <EditText
+            android:id="@+id/edit_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"></EditText>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/button_next"
+                style="@style/nextbutton"
+                android:tag="100"
+                android:text="@string/nextbutton" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/button_hint"
+                style="@style/nextbutton"
+                android:tag="200"
+                android:text="@string/hintbutton" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

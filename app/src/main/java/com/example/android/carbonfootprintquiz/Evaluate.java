@@ -174,6 +174,7 @@ public class Evaluate extends AppCompatActivity {
         String toastMessage = getString(R.string.yourscoreis) + " " + String.valueOf(intCorrect) + " " + getString(R.string.outof2) + " " + String.valueOf(intHowManyQuestions);
         Toast.makeText(Evaluate.this, toastMessage, Toast.LENGTH_LONG).show();
     }
+
     /**
      * parsing the xml, containing the question datas
      */
