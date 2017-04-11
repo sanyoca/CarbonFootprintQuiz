@@ -53,13 +53,13 @@
         <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
-            <answertext>Steam (H2O)</answertext>
-            <answernumber>2</answernumber>
             <answertext>Methane (CH4)</answertext>
-            <answernumber>3</answernumber>
+            <answernumber>2</answernumber>
             <answertext>Carbon dioxide (CO2)</answertext>
+            <answernumber>3</answernumber>
+            <answertext>Steam (H2O)</answertext>
         </answers>
-        <correct>1</correct>
+        <correct>3</correct>
     </question>
     <question>
         <questionnumber>5</questionnumber>
@@ -133,7 +133,7 @@
         <questiontype>edit</questiontype>
         <answers>
             <answernumber>1</answernumber>
-            <answertext>You can type anything here, it won't display. but there must be at least one line of answer here.</answertext>
+            <answertext>You can type anything here, it won't display, but there must be at least one line of answer here.</answertext>
         </answers>
         <correct>Finland</correct>
     </question>
