@@ -192,6 +192,7 @@ public class Evaluate extends AppCompatActivity {
                     returnStuff.qpQuestion = parseQuestion();
                     returnStuff.qpQuestionType = parseQuestionType();
                     returnStuff.qpAnswers = parseAnswers();
+                    returnStuff.qpHint = parseHint();
                     returnStuff.qpCorrectAnswer = parseCorrectAnswer();
                     // then leave the while, no need to read the rest of the file
                     break;
@@ -265,6 +266,20 @@ public class Evaluate extends AppCompatActivity {
     }
 
     /*
+    get a little hint for the user
+    */
+    public String parseHint() throws IOException, XmlPullParserException {
+        int intParserEvent = parser.next(); // this will be <hint>
+        intParserEvent = parser.next();
+        intParserEvent = parser.next();
+        String stringHint = parser.getText();
+        intParserEvent = parser.next();
+        intParserEvent = parser.next();
+        return stringHint;
+    }
+
+
+    /*
     reads the correct answer's number for the actual question
      */
     public String parseCorrectAnswer() throws IOException, XmlPullParserException {
@@ -289,6 +304,7 @@ public class Evaluate extends AppCompatActivity {
     define a class for containing the datas of the question
      */
     class QuestionParser {
+        public String qpHint;
         public String qpQuestion;
         public String qpQuestionType;
         public String[] qpAnswers;

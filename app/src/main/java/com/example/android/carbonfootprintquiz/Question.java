@@ -127,6 +127,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         // setup the next question button listener
         Button nextQuestionButton = (Button) findViewById(R.id.button_next);
         nextQuestionButton.setOnClickListener(this);
+        Button hintButton = (Button) findViewById(R.id.button_hint);
+        hintButton.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -264,6 +266,10 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                 }
                 break;
             }
+            // need a hint?
+            case "200": {
+                Toast.makeText(Question.this, qna.qpHint, Toast.LENGTH_SHORT).show();
+            }
             default: { // a radiobutton was checked, store its tag as the user's answer
                 stringAnswer = stringWhichButton;
             }
@@ -290,6 +296,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                     returnStuff.qpQuestion = parseQuestion();
                     returnStuff.qpQuestionType = parseQuestionType();
                     returnStuff.qpAnswers = parseAnswers();
+                    returnStuff.qpHint = parseHint();
                     returnStuff.qpCorrectAnswer = parseCorrectAnswer();
                     // then leave the while, no need to read the rest of the file
                     break;
@@ -363,6 +370,19 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     }
 
     /*
+    get a little hint for the user
+     */
+    public String parseHint() throws IOException, XmlPullParserException {
+        int intParserEvent = parser.next(); // this will be <hint>
+        intParserEvent = parser.next();
+        intParserEvent = parser.next();
+        String stringHint = parser.getText();
+        intParserEvent = parser.next();
+        intParserEvent = parser.next();
+        return stringHint;
+    }
+
+    /*
     reads the correct answer's number for the actual question
      */
     public String parseCorrectAnswer() throws IOException, XmlPullParserException {
@@ -387,6 +407,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     define a class for containing the datas of the question
      */
     class QuestionParser {
+        public String qpHint;
         public String qpQuestion;
         public String qpQuestionType;
         public String[] qpAnswers;

@@ -15,6 +15,7 @@
             <answernumber>4</answernumber>
             <answertext>wood</answertext>
         </answers>
+        <hint>It's solid and old.</hint>
         <correct>1</correct>
     </question>
     <question>
@@ -31,6 +32,7 @@
             <answernumber>4</answernumber>
             <answertext>The same amount of CO2 has a greater impact on the greenhouse effect than the same amount of methane</answertext>
         </answers>
+        <hint>Might be a surprising fact.</hint>
         <correct>2</correct>
     </question>
     <question>
@@ -45,6 +47,7 @@
             <answernumber>3</answernumber>
             <answertext>It would be the same, like now</answertext>
         </answers>
+        <hint>Greenhouses are hot, so... </hint>
         <correct>1</correct>
     </question>
     <question>
@@ -59,6 +62,7 @@
             <answernumber>3</answernumber>
             <answertext>Steam (H2O)</answertext>
         </answers>
+        <hint>NATURAL greenhouse effect. It's very natural.</hint>
         <correct>3</correct>
     </question>
     <question>
@@ -75,6 +79,7 @@
             <answernumber>4</answernumber>
             <answertext>The ozone molecule is build up from oxygen atoms</answertext>
         </answers>
+        <hint>Ozone is important, but ...</hint>
         <correct>3</correct>
     </question>
     <question>
@@ -91,6 +96,7 @@
             <answernumber>4</answernumber>
             <answertext>0.5 acre</answertext>
         </answers>
+        <hint>They learnt to live with nature.</hint>
         <correct>4</correct>
     </question>
     <question>
@@ -107,6 +113,7 @@
             <answernumber>4</answernumber>
             <answertext>600%</answertext>
         </answers>
+        <hint>Not THAT bad.</hint>
         <correct>4</correct>
     </question>
     <question>
@@ -125,6 +132,7 @@
             <answernumber>5</answernumber>
             <answertext>Earthquakes become more frequent</answertext>
         </answers>
+        <hint>Three things, that connect.</hint>
         <correct>01110</correct>
     </question>
     <question>
@@ -135,6 +143,7 @@
             <answernumber>1</answernumber>
             <answertext>You can type anything here, it won't display, but there must be at least one line of answer here.</answertext>
         </answers>
+        <hint>Northern Europian country.</hint>
         <correct>Finland</correct>
     </question>
 </questionlist>
