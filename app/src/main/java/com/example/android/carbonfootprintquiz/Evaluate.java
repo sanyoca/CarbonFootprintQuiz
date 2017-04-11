@@ -15,6 +15,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 
+import static android.R.id.edit;
 import static com.example.android.carbonfootprintquiz.R.raw.questions;
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.END_TAG;
@@ -25,7 +26,9 @@ public class Evaluate extends AppCompatActivity {
     final int COLORWHITE = 0xffffffff;
     final int GOODANSWERGREEN = 0xff4beb60;
     final int BADANSWERRED = 0xfff2a0a0;
-    int intCorrect, intGivenAnswers[], intShouldBeCorrect[];
+    int intCorrect;
+    String stringShouldBeCorrect[];
+    String stringGivenAnswers[];
     String stringName, goodAnswer, badAnswer;
     TextView questionNoToDisplay, questionToDisplay, answerEvaluation, correction;
     XmlPullParser parser;
@@ -43,9 +46,9 @@ public class Evaluate extends AppCompatActivity {
         // get the number of correct answers
         intCorrect = previousIntent.getIntExtra("correctAnswers", 0);
         // get the user's answers
-        intGivenAnswers = previousIntent.getIntArrayExtra("userAnswers");
+        stringGivenAnswers = previousIntent.getStringArrayExtra("userAnswers");
         // get the should be correct answers
-        intShouldBeCorrect = previousIntent.getIntArrayExtra("shouldbecorrect");
+        stringShouldBeCorrect = previousIntent.getStringArrayExtra("shouldbecorrect");
         // get the user's name
         stringName = previousIntent.getStringExtra("name");
 
@@ -111,11 +114,34 @@ public class Evaluate extends AppCompatActivity {
             // add question to the view
             lLO.addView(questionToDisplay);
 
-            goodAnswer = qna.qpAnswers[intShouldBeCorrect[i + 1]];
-            badAnswer = qna.qpAnswers[intGivenAnswers[i + 1]];
+            goodAnswer = "";
+            badAnswer = "";
+
+            if(qna.qpQuestionType.equals("radio"))  {
+                goodAnswer = qna.qpAnswers[Integer.valueOf(stringShouldBeCorrect[i + 1])];
+                badAnswer = qna.qpAnswers[Integer.valueOf(stringGivenAnswers[i + 1])];
+            }
+
+            if(qna.qpQuestionType.equals("edit"))   {
+                goodAnswer = qna.qpCorrectAnswer;
+                badAnswer = stringGivenAnswers[i+1];
+            }
+
+            if(qna.qpQuestionType.equals("check"))  {
+                for(int j = 1; j<qna.qpAnswers.length; j++) {
+                    if(stringGivenAnswers[i+1].substring(j-1, j).equals("1"))  {
+                        badAnswer = badAnswer + qna.qpAnswers[j] + ", ";
+                    }
+                    if(stringShouldBeCorrect[i+1].substring(j-1, j).equals("1"))    {
+                        goodAnswer = goodAnswer + qna.qpAnswers[j] + ", ";
+                    }
+                }
+                badAnswer = badAnswer.subSequence(0, badAnswer.length()-2).toString();
+                goodAnswer = goodAnswer.subSequence(0, goodAnswer.length()-2).toString();
+            }
 
             // the given answer equals to the correct answer?
-            if (intGivenAnswers[i + 1] == intShouldBeCorrect[i + 1]) {
+            if (stringGivenAnswers[i + 1].equals(stringShouldBeCorrect[i + 1])) {
                 // yes, it does. display it with "style"
                 // the answer
                 answerEvaluation = new TextView(this);
@@ -164,6 +190,7 @@ public class Evaluate extends AppCompatActivity {
                 if (Integer.valueOf(parser.getText()) == intQuestionNumber) {
                     // is the number equals with the question number we seek? if yes, read it
                     returnStuff.qpQuestion = parseQuestion();
+                    returnStuff.qpQuestionType = parseQuestionType();
                     returnStuff.qpAnswers = parseAnswers();
                     returnStuff.qpCorrectAnswer = parseCorrectAnswer();
                     // then leave the while, no need to read the rest of the file
@@ -197,6 +224,23 @@ public class Evaluate extends AppCompatActivity {
     }
 
     /*
+    reads the question type
+     */
+    public String parseQuestionType() throws IOException, XmlPullParserException    {
+        int intParserEvent;
+        String stringQuestionType = "radio";
+        // we don't need the opening tag
+        intParserEvent = parser.next();
+        // we just need this: the question type: radio, check, edit
+        intParserEvent = parser.next();
+        stringQuestionType = parser.getText();
+        // skip the close tag and the \n
+        intParserEvent = parser.next();
+        intParserEvent = parser.next();
+        return stringQuestionType;
+    }
+
+    /*
     reads the actual question's answers from the XML
      */
     public String[] parseAnswers() throws IOException, XmlPullParserException {
@@ -223,14 +267,14 @@ public class Evaluate extends AppCompatActivity {
     /*
     reads the correct answer's number for the actual question
      */
-    public int parseCorrectAnswer() throws IOException, XmlPullParserException {
-        int intCorrectAnswer = 1;
+    public String parseCorrectAnswer() throws IOException, XmlPullParserException {
+        String stringCorrectAnswer = "1";
         int intParserEvent = parser.next();
 
         while (intParserEvent != END_DOCUMENT) {
             if (intParserEvent == START_TAG && parser.getName().equals("correct")) {
                 intParserEvent = parser.next();
-                intCorrectAnswer = Integer.valueOf(parser.getText());
+                stringCorrectAnswer = parser.getText();
             }
 
             if ((intParserEvent == END_TAG) && (parser.getName().equals("correct"))) {
@@ -238,13 +282,16 @@ public class Evaluate extends AppCompatActivity {
             }
             intParserEvent = parser.next();
         }
-        return intCorrectAnswer;
+        return stringCorrectAnswer;
     }
 
-    // define a class for containing the datas of the question
+    /*
+    define a class for containing the datas of the question
+     */
     class QuestionParser {
         public String qpQuestion;
+        public String qpQuestionType;
         public String[] qpAnswers;
-        public int qpCorrectAnswer;
+        public String qpCorrectAnswer;
     }
 }

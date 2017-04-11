@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
                     // pass the number of the actual question (1), the number of correct answers till now (0)
                     // and the answers given by the users array, then start the Question activity
                     int intHowManyQuestions = Integer.valueOf(getString(R.string.howmanyquestions));
-                    int[] ua;
-                    ua = new int[intHowManyQuestions + 1];
+                    String[] ua;
+                    ua = new String[intHowManyQuestions + 1];
 
                     questionsIntent.putExtra("questionNumber", 1);
                     questionsIntent.putExtra("correctAnswers", 0);

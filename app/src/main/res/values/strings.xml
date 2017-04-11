@@ -4,7 +4,7 @@
     <string name="entername">Please, tell me your name:</string>
     <string name="forgotname">You forgot to tell me your name!</string>
     <string name="startbutton">Let\'s get started!</string>
-    <string name="forgotanswer">Please, select an answer!</string>
+    <string name="forgotanswer">Please, answer the question!</string>
     <string name="question">Question</string>
     <string name="nextbutton">Next question</string>
     <string name="congrats">Congratulations</string>
@@ -15,6 +15,6 @@
     <string name="wasincorrect">Your answer was incorrect</string>
     <string name="thecorrectis">The correct answer is</string>
     <string name="thesolution">Your answers and the solutions are as following:</string>
-    <string name="howmanyquestions">7</string>
+    <string name="howmanyquestions">9</string>
 </resources>
 

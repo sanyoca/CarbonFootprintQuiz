@@ -4,6 +4,7 @@
     <question>
         <questionnumber>1</questionnumber>
         <questiontext>Which energy source emits the most CO2?</questiontext>
+        <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
             <answertext>coal</answertext>
@@ -19,6 +20,7 @@
     <question>
         <questionnumber>2</questionnumber>
         <questiontext>Which statement is TRUE?</questiontext>
+        <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
             <answertext>The greenhouse effect is the outcome of human activity, emitting greenhouse gases into the atmosphere</answertext>
@@ -34,6 +36,7 @@
     <question>
         <questionnumber>3</questionnumber>
         <questiontext>If there were no greenhouse effect, how would the average temperature change?</questiontext>
+        <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
             <answertext>It would be 30 Celsius (86 F) colder</answertext>
@@ -47,6 +50,7 @@
     <question>
         <questionnumber>4</questionnumber>
         <questiontext>From the gases, listed below, which contributes the most to the NATURAL greenhouse effect?</questiontext>
+        <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
             <answertext>Steam (H2O)</answertext>
@@ -60,6 +64,7 @@
     <question>
         <questionnumber>5</questionnumber>
         <questiontext>Which statement is FALSE?</questiontext>
+        <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
             <answertext>Ozone is harmful for health</answertext>
@@ -75,6 +80,7 @@
     <question>
         <questionnumber>6</questionnumber>
         <questiontext>The ecological footprint is the biologically productive area needed to provide for everything people use. An average american citizens ecological footprint is 9.7 acres, an english citizens 5.6 acres. How much an indians ecological footprint?</questiontext>
+        <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
             <answertext>3 acres</answertext>
@@ -90,6 +96,7 @@
     <question>
         <questionnumber>7</questionnumber>
         <questiontext>An ecological deficit occurs when the Ecological footprint of a population exceeds the biocapacity of the area available to that population. China has a 260% deficit, USA has 120%, UK has 280%. How much is it for Japan?</questiontext>
+        <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
             <answertext>400%</answertext>
@@ -101,6 +108,34 @@
             <answertext>600%</answertext>
         </answers>
         <correct>4</correct>
+    </question>
+    <question>
+        <questionnumber>8</questionnumber>
+        <questiontext>What effects the climate change could have?</questiontext>
+        <questiontype>check</questiontype>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>Increasing UV radiation</answertext>
+            <answernumber>2</answernumber>
+            <answertext>Seasons shift</answertext>
+            <answernumber>3</answernumber>
+            <answertext>New pathogens appear</answertext>
+            <answernumber>4</answernumber>
+            <answertext>Species extinction</answertext>
+            <answernumber>5</answernumber>
+            <answertext>Earthquakes become more frequent</answertext>
+        </answers>
+        <correct>01110</correct>
+    </question>
+    <question>
+        <questionnumber>9</questionnumber>
+        <questiontext>Which is the 'greenest' country in the world?</questiontext>
+        <questiontype>edit</questiontype>
+        <answers>
+            <answernumber>1</answernumber>
+            <answertext>You can type anything here, it won't display. but there must be at least one line of answer here.</answertext>
+        </answers>
+        <correct>Finland</correct>
     </question>
 </questionlist>
 
