@@ -177,6 +177,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                     }
                 }
 
+                // if the answer has to be typed
                 if(qna.qpQuestionType.equals("edit"))   {
                     stringAnswer = editAnswer.getText().toString();
                     if(!stringAnswer.equals(""))    {
@@ -217,6 +218,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                     }
                 }
 
+                // if there are more acceptable options for a question -> checkboxes
                 if(qna.qpQuestionType.equals("check"))  {
                     LinearLayout checkboxHolder = (LinearLayout) findViewById(R.id.checkbox_answers);
                     CheckBox checkAnswer;
@@ -231,37 +233,42 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                         }
                     }
 
-                    // store the given and the correct answer for the question
-                    stringGivenAnswers[intQuestionNumber] = stringAnswer;
-                    stringShouldBeCorrect[intQuestionNumber] = stringCorrectAnswer;
-                    // increase the number of question by 1
-                    intQuestionNumber++;
+                    if(stringAnswer.contains("1")) {
+                        // store the given and the correct answer for the question
+                        stringGivenAnswers[intQuestionNumber] = stringAnswer;
+                        stringShouldBeCorrect[intQuestionNumber] = stringCorrectAnswer;
+                        // increase the number of question by 1
+                        intQuestionNumber++;
 
-                    // if the user gave the correct answer, increase the counter
-                    if(stringAnswer.equals(qna.qpCorrectAnswer))    {
-                        intCorrect ++;
-                    }
+                        // if the user gave the correct answer, increase the counter
+                        if (stringAnswer.equals(qna.qpCorrectAnswer)) {
+                            intCorrect++;
+                        }
 
-                    if (intQuestionNumber > intHowManyQuestions) {
-                        // if the end of the quiz reached, start the evaluation
-                        Intent evaluateIntent = new Intent(Question.this, Evaluate.class);
-                        // passing the number of correct answers and the given answers
-                        evaluateIntent.putExtra("correctAnswers", intCorrect);
-                        evaluateIntent.putExtra("userAnswers", stringGivenAnswers);
-                        evaluateIntent.putExtra("shouldbecorrect", stringShouldBeCorrect);
-                        evaluateIntent.putExtra("name", stringName);
-                        startActivity(evaluateIntent);
-                        // else go on with the questions
-                    } else {
-                        Intent questionsIntent = new Intent(Question.this, Question.class);
-                        // and pass the datas to the intent
-                        questionsIntent.putExtra("questionNumber", intQuestionNumber);
-                        questionsIntent.putExtra("correctAnswers", intCorrect);
-                        questionsIntent.putExtra("userAnswers", stringGivenAnswers);
-                        questionsIntent.putExtra("shouldbecorrect", stringShouldBeCorrect);
-                        questionsIntent.putExtra("name", stringName);
-                        // start the intent - itself again
-                        startActivity(questionsIntent);
+                        if (intQuestionNumber > intHowManyQuestions) {
+                            // if the end of the quiz reached, start the evaluation
+                            Intent evaluateIntent = new Intent(Question.this, Evaluate.class);
+                            // passing the number of correct answers and the given answers
+                            evaluateIntent.putExtra("correctAnswers", intCorrect);
+                            evaluateIntent.putExtra("userAnswers", stringGivenAnswers);
+                            evaluateIntent.putExtra("shouldbecorrect", stringShouldBeCorrect);
+                            evaluateIntent.putExtra("name", stringName);
+                            startActivity(evaluateIntent);
+                            // else go on with the questions
+                        } else {
+                            Intent questionsIntent = new Intent(Question.this, Question.class);
+                            // and pass the datas to the intent
+                            questionsIntent.putExtra("questionNumber", intQuestionNumber);
+                            questionsIntent.putExtra("correctAnswers", intCorrect);
+                            questionsIntent.putExtra("userAnswers", stringGivenAnswers);
+                            questionsIntent.putExtra("shouldbecorrect", stringShouldBeCorrect);
+                            questionsIntent.putExtra("name", stringName);
+                            // start the intent - itself again
+                            startActivity(questionsIntent);
+                        }
+                    }   else    {
+                        // if the user didn't select an answer, display a warning toast
+                        Toast.makeText(Question.this, getString(R.string.forgotanswer), Toast.LENGTH_SHORT).show();
                     }
                 }
                 break;
@@ -270,13 +277,14 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             case "200": {
                 Toast.makeText(Question.this, qna.qpHint, Toast.LENGTH_SHORT).show();
             }
-            default: { // a radiobutton was checked, store its tag as the user's answer
+            // a radiobutton was checked, store its tag as the user's answer
+            default: {
                 stringAnswer = stringWhichButton;
             }
         }
     }
-    /*
-    parsing the xml, containing the question datas
+    /**
+     * parsing the xml, containing the question datas
      */
     public QuestionParser ParseThis(int intQuestionNumber) throws IOException, XmlPullParserException {
         QuestionParser returnStuff = new QuestionParser();
@@ -309,8 +317,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         return returnStuff;
     }
 
-    /*
-    reads the actual question text from the XML
+    /**
+     * reads the actual question text from the XML
      */
     public String parseQuestion() throws IOException, XmlPullParserException {
         int intParserEvent;
@@ -328,8 +336,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         return returnQuestion;
     }
 
-    /*
-    reads the question type
+    /**
+     * reads the question type
      */
     public String parseQuestionType() throws IOException, XmlPullParserException    {
         int intParserEvent;
@@ -345,8 +353,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         return stringQuestionType;
     }
 
-    /*
-    reads the actual question's answers from the XML
+    /**
+     * reads the actual question's answers from the XML
      */
     public String[] parseAnswers() throws IOException, XmlPullParserException {
         String[] stringAnswers = {"*", "*", "*", "*", "*", "*"};
@@ -369,8 +377,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         return stringAnswers;
     }
 
-    /*
-    get a little hint for the user
+    /**
+     * get a little hint for the user
      */
     public String parseHint() throws IOException, XmlPullParserException {
         int intParserEvent = parser.next(); // this will be <hint>
@@ -382,8 +390,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         return stringHint;
     }
 
-    /*
-    reads the correct answer's number for the actual question
+    /**
+     * reads the correct answer's number for the actual question
      */
     public String parseCorrectAnswer() throws IOException, XmlPullParserException {
         String stringCorrectAnswer = "1";
@@ -403,8 +411,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         return stringCorrectAnswer;
     }
 
-    /*
-    define a class for containing the datas of the question
+    /**
+     * define a class for containing the datas of the question
      */
     class QuestionParser {
         public String qpHint;

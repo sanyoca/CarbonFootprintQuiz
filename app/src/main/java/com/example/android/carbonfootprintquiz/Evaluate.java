@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -170,6 +171,9 @@ public class Evaluate extends AppCompatActivity {
             // add the holderview to the big view in the layout
             listOfAnswers.addView(lLO);
         }
+
+        String toastMessage = getString(R.string.yourscoreis) + " " + String.valueOf(intCorrect) + " " + getString(R.string.outof2) + " " + String.valueOf(intHowManyQuestions);
+        Toast.makeText(Evaluate.this, toastMessage, Toast.LENGTH_LONG).show();
     }
     /*
     parsing the xml, containing the question datas

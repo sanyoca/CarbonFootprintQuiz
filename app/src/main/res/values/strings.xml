@@ -17,5 +17,7 @@
     <string name="thecorrectis">The correct answer is</string>
     <string name="thesolution">Your answers and the solutions are as following:</string>
     <string name="howmanyquestions">9</string>
+    <string name="yourscoreis">Your score is</string>
+    <string name="outof2">out of</string>
 </resources>
 

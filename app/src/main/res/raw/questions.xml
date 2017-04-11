@@ -118,7 +118,7 @@
     </question>
     <question>
         <questionnumber>8</questionnumber>
-        <questiontext>What effects the climate change could have?</questiontext>
+        <questiontext>What effects the climate change could have? Please choose at least one answer.</questiontext>
         <questiontype>check</questiontype>
         <answers>
             <answernumber>1</answernumber>
