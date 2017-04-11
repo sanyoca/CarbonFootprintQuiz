@@ -171,7 +171,6 @@ public class Evaluate extends AppCompatActivity {
             // add the holderview to the big view in the layout
             listOfAnswers.addView(lLO);
         }
-
         String toastMessage = getString(R.string.yourscoreis) + " " + String.valueOf(intCorrect) + " " + getString(R.string.outof2) + " " + String.valueOf(intHowManyQuestions);
         Toast.makeText(Evaluate.this, toastMessage, Toast.LENGTH_LONG).show();
     }
