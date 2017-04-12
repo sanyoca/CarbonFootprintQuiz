@@ -7,6 +7,7 @@
     <string name="forgotanswer">Please, answer the question!</string>
     <string name="question">Question</string>
     <string name="nextbutton">Next question</string>
+    <string name="evaluateme">Evaluate me</string>
     <string name="hintbutton">Help me</string>
     <string name="congrats">Congratulations</string>
     <string name="outof">Out of </string>

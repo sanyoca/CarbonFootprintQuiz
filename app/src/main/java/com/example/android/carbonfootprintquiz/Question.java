@@ -132,6 +132,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         nextQuestionButton.setOnClickListener(this);
         Button hintButton = (Button) findViewById(R.id.button_hint);
         hintButton.setOnClickListener(this);
+        if(intQuestionNumber == intHowManyQuestions)
+            nextQuestionButton.setText(getString(R.string.evaluateme));
     }
 
     /**
