@@ -118,27 +118,27 @@ public class Evaluate extends AppCompatActivity {
             goodAnswer = "";
             badAnswer = "";
 
-            if(qna.qpQuestionType.equals("radio"))  {
+            if (qna.qpQuestionType.equals("radio")) {
                 goodAnswer = qna.qpAnswers[Integer.valueOf(stringShouldBeCorrect[i + 1])];
                 badAnswer = qna.qpAnswers[Integer.valueOf(stringGivenAnswers[i + 1])];
             }
 
-            if(qna.qpQuestionType.equals("edit"))   {
+            if (qna.qpQuestionType.equals("edit")) {
                 goodAnswer = qna.qpCorrectAnswer;
-                badAnswer = stringGivenAnswers[i+1];
+                badAnswer = stringGivenAnswers[i + 1];
             }
 
-            if(qna.qpQuestionType.equals("check"))  {
-                for(int j = 1; j<qna.qpAnswers.length; j++) {
-                    if(stringGivenAnswers[i+1].substring(j-1, j).equals("1"))  {
+            if (qna.qpQuestionType.equals("check")) {
+                for (int j = 1; j < qna.qpAnswers.length; j++) {
+                    if (stringGivenAnswers[i + 1].substring(j - 1, j).equals("1")) {
                         badAnswer = badAnswer + qna.qpAnswers[j] + ", ";
                     }
-                    if(stringShouldBeCorrect[i+1].substring(j-1, j).equals("1"))    {
+                    if (stringShouldBeCorrect[i + 1].substring(j - 1, j).equals("1")) {
                         goodAnswer = goodAnswer + qna.qpAnswers[j] + ", ";
                     }
                 }
-                badAnswer = badAnswer.subSequence(0, badAnswer.length()-2).toString();
-                goodAnswer = goodAnswer.subSequence(0, goodAnswer.length()-2).toString();
+                badAnswer = badAnswer.subSequence(0, badAnswer.length() - 2).toString();
+                goodAnswer = goodAnswer.subSequence(0, goodAnswer.length() - 2).toString();
             }
 
             // the given answer equals to the correct answer?
@@ -231,7 +231,7 @@ public class Evaluate extends AppCompatActivity {
     /**
      * reads the question type
      */
-    public String parseQuestionType() throws IOException, XmlPullParserException    {
+    public String parseQuestionType() throws IOException, XmlPullParserException {
         int intParserEvent;
         String stringQuestionType = "radio";
         // we don't need the opening tag
@@ -271,7 +271,7 @@ public class Evaluate extends AppCompatActivity {
 
     /**
      * get a little hint for the user
-    */
+     */
     public String parseHint() throws IOException, XmlPullParserException {
         int intParserEvent = parser.next(); // this will be <hint>
         intParserEvent = parser.next();

@@ -30,12 +30,12 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     XmlPullParserFactory pullParserFactory;
     int intEventType;
     QuestionParser qna;
-    private int intQuestionNumber, intCorrect, intHowManyQuestions;
     String stringAnswer = "*";
-    private String[] stringGivenAnswers;
     String[] stringShouldBeCorrect;
-    private String stringName;
     String stringCorrectAnswer;
+    private int intQuestionNumber, intCorrect, intHowManyQuestions;
+    private String[] stringGivenAnswers;
+    private String stringName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,8 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         TextView q = (TextView) findViewById(R.id.textview_question);
         q.setText(qna.qpQuestion);
 
-        if(qna.qpQuestionType.equals("radio")) {
+        // if it is a radiobutton question, use this
+        if (qna.qpQuestionType.equals("radio")) {
             // get the radiogroup, so new radiobuttons can be inserted
             RadioGroup rGroup = (RadioGroup) findViewById(R.id.radiogroup_answers);
 
@@ -97,12 +98,14 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             }
         }
 
-        if(qna.qpQuestionType.equals("edit"))   {
+        // if it is a question, that requires a text input from the user, use this
+        if (qna.qpQuestionType.equals("edit")) {
             EditText editAnswer = (EditText) findViewById(R.id.edit_answer);
             editAnswer.setVisibility(View.VISIBLE);
         }
 
-        if(qna.qpQuestionType.equals("check"))  {
+        // if there is multiple answers can be selected, use this
+        if (qna.qpQuestionType.equals("check")) {
             // get the view, that contains the checkboxes
             LinearLayout checkboxHolder = (LinearLayout) findViewById(R.id.checkbox_answers);
 
@@ -124,20 +127,25 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
         // store the correct answer number
         stringCorrectAnswer = qna.qpCorrectAnswer;
 
-        // setup the next question button listener
+        // setup the next question and hint button listener
         Button nextQuestionButton = (Button) findViewById(R.id.button_next);
         nextQuestionButton.setOnClickListener(this);
         Button hintButton = (Button) findViewById(R.id.button_hint);
         hintButton.setOnClickListener(this);
     }
 
+    /**
+     * onClicklistener for the next question button, the hint button and the radiobuttons
+     *
+     * @param v the view that was clicked on
+     */
     public void onClick(View v) {
         String stringWhichButton = v.getTag().toString();
         EditText editAnswer = (EditText) findViewById(R.id.edit_answer);
         switch (stringWhichButton) {
-            case "100": {
-                // this is for the next question button
-                if(qna.qpQuestionType.equals("radio")) {
+            case "100": { // this is for the next question button
+                // if this question was a radiobutton type question
+                if (qna.qpQuestionType.equals("radio")) {
                     // if the user selected an answer
                     if (!stringAnswer.equals("")) {
                         // store the given and the correct answer for the question
@@ -178,16 +186,16 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                 }
 
                 // if the answer has to be typed
-                if(qna.qpQuestionType.equals("edit"))   {
+                if (qna.qpQuestionType.equals("edit")) {
                     stringAnswer = editAnswer.getText().toString();
-                    if(!stringAnswer.equals(""))    {
+                    if (!stringAnswer.equals("")) {
                         // store the given and the correct answer for the question
                         stringGivenAnswers[intQuestionNumber] = stringAnswer;
                         stringShouldBeCorrect[intQuestionNumber] = stringCorrectAnswer;
                         // increase the number of question by 1
                         intQuestionNumber++;
                         // if the user gave the correct answer, increase the counter
-                        if(stringAnswer.equals(stringCorrectAnswer))    {
+                        if (stringAnswer.equals(stringCorrectAnswer)) {
                             intCorrect++;
                         }
 
@@ -212,28 +220,28 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                             // start the intent - itself again
                             startActivity(questionsIntent);
                         }
-                    }   else {
-                        // if the user didn't select an answer, display a warning toast
+                    } else {
+                        // if the user didn't answer anything
                         Toast.makeText(Question.this, getString(R.string.forgotanswer), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 // if there are more acceptable options for a question -> checkboxes
-                if(qna.qpQuestionType.equals("check"))  {
+                if (qna.qpQuestionType.equals("check")) {
                     LinearLayout checkboxHolder = (LinearLayout) findViewById(R.id.checkbox_answers);
                     CheckBox checkAnswer;
                     String stringAnswer = "";
 
-                    for(int i = 0; i<checkboxHolder.getChildCount(); i++) {
+                    for (int i = 0; i < checkboxHolder.getChildCount(); i++) {
                         checkAnswer = (CheckBox) checkboxHolder.getChildAt(i);
-                        if(checkAnswer.isChecked()) {
+                        if (checkAnswer.isChecked()) {
                             stringAnswer = stringAnswer + "1";
-                        }   else    {
+                        } else {
                             stringAnswer = stringAnswer + "0";
                         }
                     }
 
-                    if(stringAnswer.contains("1")) {
+                    if (stringAnswer.contains("1")) {
                         // store the given and the correct answer for the question
                         stringGivenAnswers[intQuestionNumber] = stringAnswer;
                         stringShouldBeCorrect[intQuestionNumber] = stringCorrectAnswer;
@@ -266,14 +274,14 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                             // start the intent - itself again
                             startActivity(questionsIntent);
                         }
-                    }   else    {
-                        // if the user didn't select an answer, display a warning toast
+                    } else {
+                        // if the user didn't select any answer, display a warning toast
                         Toast.makeText(Question.this, getString(R.string.forgotanswer), Toast.LENGTH_SHORT).show();
                     }
                 }
                 break;
             }
-            // need a hint?
+            // need a hint?  This is for the hint button
             case "200": {
                 Toast.makeText(Question.this, qna.qpHint, Toast.LENGTH_SHORT).show();
             }
@@ -283,6 +291,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
             }
         }
     }
+
     /**
      * parsing the xml, containing the question datas
      */
@@ -339,7 +348,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     /**
      * reads the question type
      */
-    public String parseQuestionType() throws IOException, XmlPullParserException    {
+    public String parseQuestionType() throws IOException, XmlPullParserException {
         int intParserEvent;
         String stringQuestionType = "radio";
         // we don't need the opening tag
@@ -378,7 +387,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     }
 
     /**
-     * get a little hint for the user
+     * Get a little hint for the user
      */
     public String parseHint() throws IOException, XmlPullParserException {
         int intParserEvent = parser.next(); // this will be <hint>
