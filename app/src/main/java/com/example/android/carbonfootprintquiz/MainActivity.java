@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!name.equals("")) {
                     Intent questionsIntent = new Intent(MainActivity.this, Question.class);
                     // pass the number of the actual question (1), the number of correct answers till now (0)
-                    // and the answers given by the users array, then start the Question activity
+                    // the answers given by the users array and the correct answers, then start the Question activity
                     int intHowManyQuestions = Integer.valueOf(getString(R.string.howmanyquestions));
                     String[] ua;
                     ua = new String[intHowManyQuestions + 1];
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     questionsIntent.putExtra("name", name);
 
                     startActivity(questionsIntent);
-                } else {
+                } else { // the user forgot to type their name
                     Toast.makeText(MainActivity.this, getString(R.string.forgotname), Toast.LENGTH_SHORT).show();
                 }
             }
