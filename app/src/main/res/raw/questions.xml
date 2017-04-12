@@ -105,16 +105,16 @@
         <questiontype>radio</questiontype>
         <answers>
             <answernumber>1</answernumber>
-            <answertext>400%</answertext>
+            <answertext>300%</answertext>
             <answernumber>2</answernumber>
-            <answertext>500%</answertext>
+            <answertext>600%</answertext>
             <answernumber>3</answernumber>
             <answertext>700%</answertext>
             <answernumber>4</answernumber>
-            <answertext>600%</answertext>
+            <answertext>400%</answertext>
         </answers>
         <hint>Not THAT bad.</hint>
-        <correct>4</correct>
+        <correct>2</correct>
     </question>
     <question>
         <questionnumber>8</questionnumber>
