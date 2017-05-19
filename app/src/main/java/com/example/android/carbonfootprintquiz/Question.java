@@ -149,7 +149,7 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
                 // if this question was a radiobutton type question
                 if (qna.qpQuestionType.equals("radio")) {
                     // if the user selected an answer
-                    if (!stringAnswer.equals("")) {
+                    if (!stringAnswer.equals("") && !stringAnswer.equals("*")) {
                         // store the given and the correct answer for the question
                         stringGivenAnswers[intQuestionNumber] = stringAnswer;
                         stringShouldBeCorrect[intQuestionNumber] = stringCorrectAnswer;
@@ -332,18 +332,18 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
      * reads the actual question text from the XML
      */
     public String parseQuestion() throws IOException, XmlPullParserException {
-        int intParserEvent;
+
         String returnQuestion;
         // we don't need the </questionnumber>, <questiontext> tags, and the \n stuff, so skip them
-        intParserEvent = parser.next();
-        intParserEvent = parser.next();
-        intParserEvent = parser.next();
+        parser.next();
+        parser.next();
+        parser.next();
         // we need this, this contains the question
-        intParserEvent = parser.next();
+        parser.next();
         returnQuestion = parser.getText();
         // and we skip the </questiontext> tag and the \n after it
-        intParserEvent = parser.next();
-        intParserEvent = parser.next();
+        parser.next();
+        parser.next();
         return returnQuestion;
     }
 
@@ -351,16 +351,16 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
      * reads the question type
      */
     public String parseQuestionType() throws IOException, XmlPullParserException {
-        int intParserEvent;
-        String stringQuestionType = "radio";
+
+        String stringQuestionType;
         // we don't need the opening tag
-        intParserEvent = parser.next();
+        parser.next();
         // we just need this: the question type: radio, check, edit
-        intParserEvent = parser.next();
+        parser.next();
         stringQuestionType = parser.getText();
         // skip the close tag and the \n
-        intParserEvent = parser.next();
-        intParserEvent = parser.next();
+        parser.next();
+        parser.next();
         return stringQuestionType;
     }
 
@@ -392,12 +392,12 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
      * Get a little hint for the user
      */
     public String parseHint() throws IOException, XmlPullParserException {
-        int intParserEvent = parser.next(); // this will be <hint>
-        intParserEvent = parser.next();
-        intParserEvent = parser.next();
+        parser.next(); // this will be <hint>
+        parser.next();
+        parser.next();
         String stringHint = parser.getText();
-        intParserEvent = parser.next();
-        intParserEvent = parser.next();
+        parser.next();
+        parser.next();
         return stringHint;
     }
 
@@ -425,11 +425,11 @@ public class Question extends AppCompatActivity implements View.OnClickListener 
     /**
      * define a class for containing the datas of the question
      */
-    class QuestionParser {
-        public String qpHint;
-        public String qpQuestion;
-        public String qpQuestionType;
-        public String[] qpAnswers;
-        public String qpCorrectAnswer;
+    private class QuestionParser {
+        private String qpHint;
+        private String qpQuestion;
+        private String qpQuestionType;
+        private String[] qpAnswers;
+        private String qpCorrectAnswer;
     }
 }
